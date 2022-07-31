@@ -1,0 +1,32 @@
+.bfd-dropfield {
+  display: inline;
+  padding: 5px; }
+
+.bfd-dropfield-inner {
+  border: 2px dashed teal;
+  color: teal;
+  cursor: pointer;
+  font-size: 32px;
+  text-align: center; }
+  .bfd-dropfield-inner:hover, .bfd-dropfield-inner.bfd-dragover {
+    border-color: #bbb;
+    color: #bbb; }
+
+.bfd-info {
+  overflow: hidden;
+  white-space: nowrap; }
+
+.bfd-error-message {
+  text-align: center; }
+
+.bfd-remove {
+  cursor: pointer; }
+
+.box.has-advanced-upload {
+  background-color: white;
+  outline: 2px dashed black;
+  outline-offset: -10px;
+}
+.box.has-advanced-upload .box__dragndrop {
+  display: inline;
+}

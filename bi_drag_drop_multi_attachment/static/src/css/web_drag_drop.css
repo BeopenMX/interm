@@ -1,0 +1,109 @@
+.box
+{
+
+    background-color: transparent;
+    color: transparent;
+    position: absolute;
+    min-height: 50px;
+    display: block;
+    /* z-index: 1000; */
+    width: 40%;
+    opacity: 0.8;
+    height: 10%;
+    margin-left: 25em;
+    /* float: right; */
+    /* margin-top: 10em; */
+}
+
+
+.box.drop-multi-attachment
+{
+    padding-top: 24px;
+    padding-right: 16px;
+    padding-bottom: 24px;
+    padding-left: 16px;
+    display: block;
+    outline: 2px dashed #fff;
+    outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+}
+.box.is-dragover
+{
+    outline-offset: -20px;
+    outline-color: #008B8B;
+    background-color: #fff;
+    color: #008B8B;
+}
+.box-dragndrop,
+.box-icon
+{
+    display: none;
+}
+.box.drop-multi-attachment .box-dragndrop
+{
+    display: inline;
+    font-size: 20px;
+}
+.box.drop-multi-attachment .box-icon
+{
+    width: 80%;
+    height: 80px;
+    fill: #fff;
+    display: block;
+    margin-bottom: 40px;
+}
+.box.drop-multi-attachment.is-dragover .box-icon
+{
+    fill: #008B8B;
+}
+.box-uploading,
+.box-success,
+.box-error
+{
+    display: none;
+}
+.box.is-uploading .box-uploading,
+.box.is-success .box-success,
+.box.is-error .box-error
+{
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    font-size: 20px;
+    -webkit-transform: translateY( -50% );
+    transform: translateY( -50% );
+}
+.box-uploading
+{
+    font-style: italic;
+}
+.box-success
+{
+    -webkit-animation: appear-from-inside .25s ease-in-out;
+    animation: appear-from-inside .25s ease-in-out;
+}
+    @-webkit-keyframes appear-from-inside
+    {
+        from    { -webkit-transform: translateY( -50% ) scale( 0 ); }
+        75%     { -webkit-transform: translateY( -50% ) scale( 1.1 ); }
+        to      { -webkit-transform: translateY( -50% ) scale( 1 ); }
+    }
+    @keyframes appear-from-inside
+    {
+        from    { transform: translateY( -50% ) scale( 0 ); }
+        75%     { transform: translateY( -50% ) scale( 1.1 ); }
+        to      { transform: translateY( -50% ) scale( 1 ); }
+    }
+
+.box-restart
+{
+    font-weight: 700;
+}
+.box-restart:focus,
+.box-restart:hover
+{
+    color: #39bfd3;
+}
