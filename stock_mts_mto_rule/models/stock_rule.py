@@ -10,8 +10,7 @@ class StockRule(models.Model):
     _inherit = "stock.rule"
 
     action = fields.Selection(
-        selection_add=[("split_procurement", "Choose between MTS and MTO")],
-        ondelete={"split_procurement": "cascade"},
+        selection_add=[("split_procurement", "Choose between MTS and MTO")]
     )
     mts_rule_id = fields.Many2one("stock.rule", string="MTS Rule", check_company=True)
     mto_rule_id = fields.Many2one("stock.rule", string="MTO Rule", check_company=True)
@@ -96,7 +95,7 @@ class StockRule(models.Model):
                     [domain, [("group_id", "=", group_id.id)]]
                 )
                 moves_to_assign = self.env["stock.move"].search(
-                    group_domain, order="priority desc, date asc"
+                    group_domain, order="priority desc, date_expected asc"
                 )
                 moves_to_assign._action_assign()
 

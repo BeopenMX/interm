@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+	<record id="purchase_order_form_inherit_report_description" model="ir.ui.view">
+		<field name="name">Purchase.Qweb.Report.Description</field>
+		<field name="model">purchase.order</field>
+		<field name="inherit_id" ref="purchase.purchase_order_form" />
+		<field name="arch" type="xml">
+			<xpath expr="//notebook[1]" position="before">
+			  <group>
+				  <field name="report_description"/>
+			  </group>
+		  </xpath>
+		</field>
+	</record>
+
+</odoo>

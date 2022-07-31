@@ -1,0 +1,137 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* informe_po_spanish
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-14 18:32+0000\n"
+"PO-Revision-Date: 2020-11-14 18:32+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: informe_po_spanish
+#: model_terms:ir.ui.view,arch_db:informe_po_spanish.custom_external_layout_po_spanish
+msgid ""
+"<br/>\n"
+"                        <strong style=\"color:white; font-size:18px\">Fecha </strong>"
+msgstr ""
+"<br/>\n"
+"                        <strong style=\"color:white; font-size:18px\">Date </strong>"
+
+#. module: informe_po_spanish
+#: model_terms:ir.ui.view,arch_db:informe_po_spanish.purchase_order_spanish_document
+msgid ""
+"<br/>\n"
+"                        <strong> Notas: </strong>\n"
+"                        <br/>"
+msgstr ""
+"<br/>\n"
+"                        <strong> Notes: </strong>\n"
+"                        <br/>"
+
+#. module: informe_po_spanish
+#: model_terms:ir.ui.view,arch_db:informe_po_spanish.purchase_order_spanish_document
+msgid "<span style=\"color:black\">Fernando Carrillo Cepeda</span>"
+msgstr "<span style=\"color:black\">Fernando Carrillo Cepeda</span>"
+
+#. module: informe_po_spanish
+#: model_terms:ir.ui.view,arch_db:informe_po_spanish.purchase_order_spanish_document
+msgid "<span>Subtotal</span>"
+msgstr "<span>Subtotal</span>"
+
+#. module: informe_po_spanish
+#: model_terms:ir.ui.view,arch_db:informe_po_spanish.purchase_order_spanish_document
+msgid ""
+"<strong>Terminos y condiciones</strong>\n"
+"                        <br/>"
+msgstr ""
+
+#. module: informe_po_spanish
+#: model_terms:ir.ui.view,arch_db:informe_po_spanish.purchase_order_spanish_document
+msgid "<strong class=\"mr16\">Subtotal</strong>"
+msgstr "<strong class=\"mr16\">Subtotal</strong>"
+
+#. module: informe_po_spanish
+#: model_terms:ir.ui.view,arch_db:informe_po_spanish.purchase_order_spanish_document
+msgid ""
+"<strong style=\"color:#213360; font-size:20px\">Facturar y enviar "
+"a:</strong>"
+msgstr ""
+"<strong style=\"color:#213360; font-size:20px\">Bill and ship "
+"to:</strong>"
+
+#. module: informe_po_spanish
+#: model_terms:ir.ui.view,arch_db:informe_po_spanish.purchase_order_spanish_document
+msgid "<strong style=\"color:#213360; font-size:20px\">Proveedor:</strong>"
+msgstr "<strong style=\"color:#213360; font-size:20px\">Supplier:</strong>"
+
+#. module: informe_po_spanish
+#: model_terms:ir.ui.view,arch_db:informe_po_spanish.custom_external_layout_po_spanish
+msgid "<strong style=\"color:white; font-size:18px\">Orden No. </strong>"
+msgstr "<strong style=\"color:white; font-size:18px\">Orden No. </strong>"
+
+#. module: informe_po_spanish
+#: model_terms:ir.ui.view,arch_db:informe_po_spanish.purchase_order_spanish_document
+msgid "<strong style=\"color:white;\">TOTAL</strong>"
+msgstr "<strong style=\"color:white;\">TOTAL</strong>"
+
+#. module: informe_po_spanish
+#: model_terms:ir.ui.view,arch_db:informe_po_spanish.purchase_order_spanish_document
+msgid "<strong>C.P:</strong>"
+msgstr "<strong>C.P:</strong>"
+
+#. module: informe_po_spanish
+#: model_terms:ir.ui.view,arch_db:informe_po_spanish.purchase_order_spanish_document
+msgid "<strong>RFC:</strong>"
+msgstr "<strong>RFC:</strong>"
+
+#. module: informe_po_spanish
+#: model_terms:ir.ui.view,arch_db:informe_po_spanish.purchase_order_spanish_document
+msgid "<strong>Tel:</strong>"
+msgstr "<strong>Phone:</strong>"
+
+#. module: informe_po_spanish
+#: model_terms:ir.ui.view,arch_db:informe_po_spanish.purchase_order_spanish_document
+msgid "<strong>Usuario:</strong>"
+msgstr "<strong>User:</strong>"
+
+#. module: informe_po_spanish
+#: model_terms:ir.ui.view,arch_db:informe_po_spanish.purchase_order_spanish_document
+msgid "Cantidad"
+msgstr "Quantity"
+
+#. module: informe_po_spanish
+#: model_terms:ir.ui.view,arch_db:informe_po_spanish.purchase_order_spanish_document
+msgid "Descripcion"
+msgstr "Description"
+
+#. module: informe_po_spanish
+#: model_terms:ir.ui.view,arch_db:informe_po_spanish.purchase_order_spanish_document
+msgid "I.V.A"
+msgstr "I.V.A"
+
+#. module: informe_po_spanish
+#: model_terms:ir.ui.view,arch_db:informe_po_spanish.purchase_order_spanish_document
+msgid "Importe"
+msgstr "Amount"
+
+#. module: informe_po_spanish
+#: model_terms:ir.ui.view,arch_db:informe_po_spanish.custom_external_layout_po_spanish
+msgid "Logo"
+msgstr "Logo"
+
+#. module: informe_po_spanish
+#: model_terms:ir.ui.view,arch_db:informe_po_spanish.purchase_order_spanish_document
+msgid "Nº"
+msgstr "Nº"
+
+#. module: informe_po_spanish
+#: model_terms:ir.ui.view,arch_db:informe_po_spanish.purchase_order_spanish_document
+msgid "Precio Unitario"
+msgstr "Unit price"

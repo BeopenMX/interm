@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="sale_order_mx_tools" inherit_id="informe_quotation.sale_order_quotation_document">>
+        <xpath expr="//t[@t-call='informe_quotation.external_layout_quotation']//div[hasclass('page')]//div[@name='total']//td[@name='td_amount_by_group_label_3']"
+               position="replace">
+            <td name="td_amount_by_group_label_3">
+                <span t-esc="amount_by_group[0]"/>
+            </td>
+        </xpath>
+        <xpath expr="//t[@t-call='informe_quotation.external_layout_quotation']//div[hasclass('page')]/div/div/table"
+               position="replace">
+            <table style="width:100%">
+                <tr>
+                    <td>
+                        <strong style="color:#213360; font-size:20px">Cliente:</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <strong>
+                            <t t-if="doc.partner_id.parent_id">
+                                <span t-field="doc.partner_id.parent_id.name"/>
+                            </t>
+                            <t t-else="">
+                                <span t-field="doc.partner_id.name"/>
+                            </t>
+                        </strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>RFC:</strong>
+                    </td>
+                    <td>
+                        <span t-field="doc.partner_id.vat"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>C.P.:</strong>
+                    </td>
+                    <td>
+                        <span t-field="doc.partner_id.zip"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:30%">
+                        <strong>Atencion:</strong>
+                    </td>
+                    <td style="width:70%">
+                        <span t-field="doc.partner_id.name"/>
+                    </td>
+                </tr>
+            </table>
+        </xpath>
+    </template>
+
+    <template id="purchase_order_mx_custom_external_layout"
+              inherit_id="informe_po_spanish.custom_external_layout_po_spanish">
+        <xpath expr="//div[hasclass('footer')]//div[hasclass('row')]" position="replace">
+            <div class="row">
+                <div class="col-4">
+                    <img src="/informe_po_spanish/static/src/img/telefono.jpg" style="float:left" width="35" height="35"
+                         alt="telefono icono"/>
+                    <p style="padding-left:38px">
+                        <t t-if="o.partner_id.lang == 'en_US'">
+                            <span>+1 956 242 0502</span>
+                            <br/>
+                            <span>+1 956 701 8191</span>
+                        </t>
+                        <t t-else="">
+                            <span>+52 844 489 7866</span>
+                            <br/>
+                            <span>+52 844 489 7712</span>
+                        </t>
+                    </p>
+                </div>
+                <div class="col-4">
+                    <img src="/informe_po_spanish/static/src/img/Ubicacion.jpg" style="float:left" width="35"
+                         height="35" alt="ubicacion icono"/>
+                    <p style="padding-left:38px">
+                        <t t-if="o.partner_id.lang == 'en_US'">
+                            <t t-if="o.partner_id.country_id.code == 'MX'">
+                                <span t-field="o.company_id.street_name"/>&amp;nbsp;
+                                <span t-field="o.company_id.street_number"/>
+                                <br/>
+                                <span t-field="o.company_id.city"/>,&amp;nbsp;
+                                <span t-field="o.company_id.state_id"/>,&amp;nbsp;
+                                <span t-field="o.company_id.zip"/>,&amp;nbsp;
+                                <span t-field="o.company_id.country_id"/>
+                            </t>
+                            <t t-else="">
+                                <span t-field="o.company_id.street_foreign"/>
+                            </t>
+                        </t>
+                        <t t-else="">
+                            <t t-if="o.partner_id.country_id.code == 'MX'">
+                                <span t-field="o.company_id.street_name"/>&amp;nbsp;
+                                <span t-field="o.company_id.street_number"/>&amp;nbsp;
+                                <br/>
+                                <span t-field="o.company_id.city"/>,&amp;nbsp;
+                                <span t-field="o.company_id.state_id"/>,&amp;nbsp;
+                                <span t-field="o.company_id.zip"/>,&amp;nbsp;
+                                <span t-field="o.company_id.country_id"/>
+                            </t>
+                            <t t-else="">
+                                <span t-field="o.company_id.street_foreign"/>
+                            </t>
+                        </t>
+
+                    </p>
+                </div>
+                <div class="col-4">
+                    <img src="/informe_po_spanish/static/src/img/Correo.jpg" style="float:left" width="35" height="35"
+                         alt="correo icono"/>
+
+                    <p style="padding-left:38px;word-wrap:break-word;">
+                        <t t-if="o.partner_id.lang == 'en_US'">
+                            <span>purchasing@interm.us</span>
+                            <br/>
+                            <span>www.interm.us</span>
+                        </t>
+                        <t t-else="">
+                            <span>info@interm.com.mx</span>
+                            <br/>
+                            <span>www.interm.com.mx</span>
+                        </t>
+                    </p>
+                </div>
+
+            </div>
+        </xpath>
+    </template>
+</odoo>

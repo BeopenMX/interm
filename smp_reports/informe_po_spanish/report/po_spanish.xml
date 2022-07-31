@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="purchase_order_spanish_interm" inherit_id="purchase.report_purchaseorder">>
+         <xpath expr="//t[@t-call='purchase.report_purchaseorder_document']" position="replace">
+            <t t-call="informe_po_spanish.purchase_order_spanish_document" t-lang="o.partner_id.lang"/>
+        </xpath>
+    </template>
+
+	<template id="purchase_order_spanish_document" >
+        <t t-call="informe_po_spanish.external_layout_po_spanish">
+            <t t-set="o" t-value="o.with_context(lang=o.partner_id.lang)"/>
+            <div class="page" style="font-size:16px;color:#404242;font-family: 'Montserrat', sans-serif;">
+                <div class="row">
+                    <div class="col-5">
+                        <table>
+                            <tr>
+                                <td colspan="2">
+                                    <strong style="color:#213360; font-size:20px">Proveedor:</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <strong t-field="o.partner_id.name"/>
+                                </td>
+                            </tr>
+                            <t t-if="o.partner_id.lang == 'en_US'">
+                                <tr>
+                                <td>
+                                    <strong>Website:</strong>
+                                </td>
+                                <td>
+                                    <span t-field="o.partner_id.website"/>
+                                </td>
+                            </tr>
+                                <tr>
+                                <td>
+                                    <strong>Email:</strong>
+                                </td>
+                                <td>
+                                    <span t-field="o.partner_id.email"/>
+                                </td>
+                            </tr>
+                            </t>
+                            <t t-else="">
+                            <tr>
+                                <td>
+                                    <strong>RFC:</strong>
+                                </td>
+                                <td>
+                                    <span t-field="o.partner_id.vat"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>C.P:</strong>
+                                </td>
+                                <td>
+                                    <span t-field="o.partner_id.zip"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%">
+                                    <strong>Tel:</strong>
+                                </td>
+                                <td>
+                                    <span t-field="o.partner_id.phone"/>
+                                </td>
+                            </tr>
+                            </t>
+                        </table>
+                    </div>
+                    <div class="col-3"/>
+                    <div class="col-4">
+                        <table>
+                            <tr>
+                                <td colspan="2">
+                                    <strong style="color:#213360; font-size:20px">Facturar y enviar a:</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <strong t-field="o.company_id.partner_id"/>
+                                </td>
+                            </tr>
+                            <t t-if="o.partner_id.lang == 'en_US'">
+                                <tr>
+                                    <td colspan="2">
+                                            <span>4610 Modern Lane <br/>78041, Laredo, Texas</span>
+                                            <br/>
+                                            <span>Contact: </span><span t-field="o.user_id"/>
+                                    </td>
+                                </tr>
+                            </t>
+                            <t t-else="">
+                                <tr>
+                                <td style="width:40%">
+                                    <strong>RFC:</strong>
+                                </td>
+                                <td>
+                                    <span t-field="o.company_id.partner_id.vat"/>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td>
+                                        <strong>C.P:</strong>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.company_id.partner_id.zip"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Usuario:</strong>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.user_id"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+                <style>
+                        .table-cua thead,
+                        .table-cua th{
+                            border:1px solid #1b4493;
+                        }
+
+                    </style>
+                <t t-set="line_num" t-value="1"/>
+                <table style="width:100%" class="table-cua">
+                    <thead class="text-center" style="background-color:#1b4493; color:#FFFFFF">
+                        <tr class="table-cua" style="background-color:#1b4493; color:#FFFFFF; font-size:20px">
+                            <t t-set="colspan" t-value="6"/>
+                            <th style="width:10%">Nº</th>
+                            <th style="width:40%">Descripcion</th>
+                            <th>Precio Unitario</th>
+                            <th class="text-center">Cantidad</th>
+                            <th>Importe</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center" style="font-size:16px;">
+                        <t t-set="current_subtotal" t-value="0"/>
+                        <t t-foreach="o.order_line" t-as="line">
+                            <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
+                            <t t-set="current_subtotal" t-value="current_subtotal + line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
+                            <tr>
+                                <t t-if="not line.display_type">
+                                    <td style="padding-top:7px;">
+                                        <t t-esc="line_num"/>
+                                        <t t-set="line_num" t-value="line_num + 1"/>
+                                    </td>
+                                    <td class="text-left" style="padding-left:7px;">
+                                        <span t-field="line.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.price_unit" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.product_uom_qty"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.price_subtotal"/>
+                                    </td>
+                                </t>
+                                <t t-if="line.display_type == 'line_section'">
+                                    <td colspan="99" id="section">
+                                        <span t-field="line.name"/>
+                                    </td>
+                                    <t t-set="current_section" t-value="line"/>
+                                    <t t-set="current_subtotal" t-value="0"/></t>
+                                <t t-if="line.display_type == 'line_note'">
+                                    <td colspan="99" id="note">
+                                        <span t-field="line.name"/>
+                                    </td>
+                                </t>
+                            </tr>
+                            <t t-if="current_section and (line_last or o.order_line[line_index+1].display_type == 'line_section')">
+                                <tr class="is-subtotal text-right">
+                                    <td colspan="99" id="subtotal" style="padding-top:7px;">
+                                        <strong class="mr16">Subtotal</strong>
+                                        <span t-esc="current_subtotal" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </t>
+                    </tbody>
+                </table>
+                <br/>
+                <div id="total" class="row">
+                    <div class="col-8">
+                        <br/>
+                        <strong> Notas: </strong>
+                        <br/>
+                        <span t-esc="o.report_description"/>
+                    </div>
+                    <div class="col-4">
+                        <table style="width:100%">
+                            <tr>
+                                <td name="td_subtotal_label" style="border-top:none;padding-left:5px;">
+                                    <span>Subtotal</span>
+                                </td>
+                                <td class="text-center">
+                                    <span t-field="o.amount_untaxed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td name="td_taxes_label" style="padding-left:5px;">I.V.A</td>
+                                <td class="text-center">
+                                    <span t-field="o.amount_tax" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                </td>
+                            </tr>
+                            <tr style="background-color:#1b4493">
+                                <td name="td_amount_total_label" style="background-color:#1b4493;" class="text-center">
+                                    <strong style="color:white;">TOTAL</strong>
+                                </td>
+                                <td class="text-center" style="background-color:#1b4493;">
+                                    <span style="color:white;" t-field="o.amount_total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+                <t t-if="o.partner_id.lang != 'en_US'">
+                <div class="row">
+                    <div class="col-7">
+                        <strong>Terminos y condiciones</strong>
+                        <br/>
+                        <span t-field="o.notes"/>
+                    </div>
+                    <div class="col-5"/></div>
+                </t>
+                <div style="page-break-inside:avoid !important">
+                    <div style="display:block;height:164px;"/>
+                    <div class="row">
+                        <div class="col-8"/>
+                        <div class="col-4">
+                            <div class="text-center" style="border-top: 1px solid black;">
+                                <span style="color:black">Fernando Carrillo Cepeda</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+	</template>
+
+    <template id="external_layout_po_spanish">
+        <t t-if="not o" t-set="o" t-value="doc"/>
+        <t t-if="not company">
+            <!-- Multicompany -->
+            <t t-if="company_id">
+                <t t-set="company" t-value="company_id"/>
+            </t>
+            <t t-elif="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+            <t t-else="else">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+        </t>
+        <t t-call="informe_po_spanish.custom_external_layout_po_spanish"><t t-raw="0"/></t>
+    </template>
+
+    <template id="custom_external_layout_po_spanish">
+        <div class="header" style="font-family: 'Montserrat', sans-serif;">
+            <div class="row">
+                <br/>
+                <div class="col-4 mb4">
+                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 65px;" alt="Logo"/>
+                </div>
+                <div class="col-4"/>
+                <div class="col-4">
+                    <div style="background-color:#1b4493; padding-left:10px;padding-right:10px">
+                        <strong style="color:white; font-size:18px">Orden No. </strong>
+                        <span style="color:white; padding-left:10px; font-size:18px" t-field="o.name"/>
+                        <br/>
+                        <strong style="color:white; font-size:18px">Fecha </strong>
+                        <t t-set="spanish_month" t-value="{'January':'Enero','February':'Feb.','March':'Mar.','April':'Abr.','May':'May.','June':'Jun.','July':'Jul.',
+                                                           'December':'Dic.','August':'Ago.','September':'Sep.','October':'Oct.','November':'Nov.'}"/>
+                                  <t t-set="month" t-value="spanish_month.get(o.date_order.strftime('%B'))"/>
+                                  <t t-set="day" t-value="o.date_order.strftime('%d')"/>
+                                  <t t-set="year" t-value="o.date_order.strftime('%Y')"/>
+                        <t t-if="o.partner_id.lang == 'en_US'">
+                            <span style="color:white; padding-left:10px; font-size:18px" t-esc="o.date_order.strftime('%d %b %Y')"/>
+                        </t>
+                        <t t-else="">
+                          <span style="color:white; padding-left:10px; font-size:18px" t-esc="'{0} {1} {2}'.format(day,month,year)"/>
+                        </t>
+                    </div>
+                </div>
+                <!--<div class="col-9 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto"/>-->
+            </div>
+        </div>
+        <div class="article " t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+            <t t-call="web.address_layout"/>
+            <t t-raw="0"/>
+        </div>
+        <div class="footer" style="font-size:12px;font-family: 'Montserrat', sans-serif;">
+            <t t-if="o.partner_id.lang == 'en_US'">
+            <div style="display:block;height:25px;background-color:#1b4493"/>
+            </t>
+            <div class="row ">
+                <div class="col-4">
+                    <img src="/informe_po_spanish/static/src/img/telefono.jpg" style="float:left" width="35" height="35" alt="telefono icono"/>
+                    <p style="padding-left:38px" >
+                        <t t-if="o.partner_id.lang == 'en_US'">
+                            <span>+1 956 242 0502</span>
+                            <br/>
+                            <span>+1 956 701 8191</span>
+                        </t>
+                        <t t-else="">
+                            <span>+52 844 489 7866</span>
+                            <br/>
+                            <span>+52 844 489 7712</span>
+                        </t>
+                    </p>
+                </div>
+                <div class="col-4">
+                    <img src="/informe_po_spanish/static/src/img/Ubicacion.jpg" style="float:left" width="35" height="35" alt="ubicacion icono"/>
+                        <p style="padding-left:38px">
+                            <t t-if="o.partner_id.lang == 'en_US'">
+                                <span>4610 Modern Lane <br/>78041, Laredo, Texas</span>
+                            </t>
+                            <t t-else="">
+                                <span>Prol. Blvd. Del Valle 586<br/> Del Valle, 25904, Ramos Arizpe</span>
+                            </t>
+                            
+                        </p>
+                </div>
+                <div class="col-4">
+                    <img src="/informe_po_spanish/static/src/img/Correo.jpg" style="float:left" width="35" height="35" alt="correo icono"/>
+                    
+                    <p style="padding-left:38px;word-wrap:break-word;">
+                       <t t-if="o.partner_id.lang == 'en_US'">
+                            <span>purchasing@interm.us</span>
+                            <br/>
+                            <span>www.interm.us</span>
+                        </t>
+                        <t t-else="">
+                            <span>info@interm.com.mx</span>
+                            <br/>
+                            <span>www.interm.com.mx</span>
+                        </t>
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </template>
+
+    <record id="informe_compras" model="report.paperformat">
+        <field name="name">Purchase Quotation</field>
+        <field name="default" eval="False"/>
+        <field name="format">custom</field>
+        <field name="page_height">280</field>
+        <field name="page_width">216</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">35</field>
+        <field name="margin_bottom">25</field>
+        <field name="margin_left">15</field>
+        <field name="margin_right">15</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">20</field>
+        <field name="dpi">90</field>
+    </record>
+
+</odoo>

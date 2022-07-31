@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="purchase_order_mx_dir" inherit_id="informe_po_spanish.purchase_order_spanish_document">>
+        <xpath expr="//t[@t-call='informe_po_spanish.external_layout_po_spanish']//div[hasclass('row')]"
+               position="replace">
+            <div class="row">
+                <div class="col-5">
+                    <table>
+                        <tr>
+                            <td colspan="2">
+                                <strong style="color:#213360; font-size:20px">Proveedor:</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <strong t-field="o.partner_id.name"/>
+                            </td>
+                        </tr>
+                        <t t-if="o.partner_id.lang == 'en_US'">
+                            <tr>
+                                <td>
+                                    <strong>Website:</strong>
+                                </td>
+                                <td>
+                                    <span t-field="o.partner_id.website"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Email:</strong>
+                                </td>
+                                <td>
+                                    <span t-field="o.partner_id.email"/>
+                                </td>
+                            </tr>
+                        </t>
+                        <t t-else="">
+                            <tr>
+                                <td>
+                                    <strong>RFC:</strong>
+                                </td>
+                                <td>
+                                    <span t-field="o.partner_id.vat"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>C.P:</strong>
+                                </td>
+                                <td>
+                                    <span t-field="o.partner_id.zip"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%">
+                                    <strong>Tel:</strong>
+                                </td>
+                                <td>
+                                    <span t-field="o.partner_id.phone"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </table>
+                </div>
+                <div class="col-3"/>
+                <div class="col-4">
+                    <table>
+                        <tr>
+                            <td colspan="2">
+                                <strong style="color:#213360; font-size:20px">Facturar y enviar a:</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <strong t-field="o.company_id.partner_id"/>
+                            </td>
+                        </tr>
+                        <t t-if="o.partner_id.lang == 'en_US'">
+                            <tr>
+                                <t t-if="o.partner_id.country_id.code == 'MX'">
+                                    <td colspan="2">
+                                        <span t-field="o.company_id.street_name"/>&amp;nbsp;
+                                        <span t-field="o.company_id.street_number"/>&amp;nbsp;
+                                        <br/>
+                                        <span t-field="o.company_id.city"/>,&amp;nbsp;
+                                        <span t-field="o.company_id.state_id"/>,&amp;nbsp;
+                                        <span t-field="o.company_id.zip"/>,&amp;nbsp;
+                                        <span t-field="o.company_id.country_id"/>
+                                        <!--                                        <span>4610 Modern Lane<br/>78041, Laredo, Texas-->
+                                        <!--                                        </span>-->
+                                        <br/>
+                                        <span>Contact:</span>
+                                        <span t-field="o.user_id"/>
+                                    </td>
+                                </t>
+                                <t t-else="">
+                                    <td colspan="2">
+                                        <span t-field="o.company_id.street_foreign"/>
+                                    </td>
+                                </t>
+                            </tr>
+                        </t>
+                        <t t-else="">
+                            <t t-if="o.partner_id.country_id.code == 'MX'">
+                                <tr>
+                                    <td colspan="2">
+                                        <span t-field="o.company_id.street_name"/>&amp;nbsp;
+                                        <span t-field="o.company_id.street_number"/>&amp;nbsp;
+                                        <br/>
+                                        <span t-field="o.company_id.city"/>,&amp;nbsp;
+                                        <span t-field="o.company_id.state_id"/>,&amp;nbsp;
+                                        <span t-field="o.company_id.zip"/>,&amp;nbsp;
+                                        <span t-field="o.company_id.country_id"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:40%">
+                                        <strong>RFC:</strong>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.company_id.partner_id.vat"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>C.P:</strong>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.company_id.partner_id.zip"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Usuario:</strong>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.user_id"/>
+                                    </td>
+                                </tr>
+                            </t>
+                            <t t-else="">
+                                <td colspan="2">
+                                    <span t-field="o.company_id.street_foreign"/>
+                                </td>
+                            </t>
+                        </t>
+                    </table>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="purchase_order_mx_custom_external_layout"
+              inherit_id="informe_po_spanish.custom_external_layout_po_spanish">
+        <xpath expr="//div[hasclass('footer')]//div[hasclass('row')]" position="replace">
+            <div class="row">
+                <div class="col-4">
+                    <img src="/informe_po_spanish/static/src/img/telefono.jpg" style="float:left" width="35" height="35"
+                         alt="telefono icono"/>
+                    <p style="padding-left:38px">
+                        <t t-if="o.partner_id.lang == 'en_US'">
+                            <span>+1 956 242 0502</span>
+                            <br/>
+                            <span>+1 956 701 8191</span>
+                        </t>
+                        <t t-else="">
+                            <span>+52 844 489 7866</span>
+                            <br/>
+                            <span>+52 844 489 7712</span>
+                        </t>
+                    </p>
+                </div>
+                <div class="col-4">
+                    <img src="/informe_po_spanish/static/src/img/Ubicacion.jpg" style="float:left" width="35"
+                         height="35" alt="ubicacion icono"/>
+                    <p style="padding-left:38px">
+                        <t t-if="o.partner_id.lang == 'en_US'">
+                            <t t-if="o.partner_id.country_id.code == 'MX'">
+                                <span t-field="o.company_id.street_name"/>&amp;nbsp;
+                                <span t-field="o.company_id.street_number"/>
+                                <br/>
+                                <span t-field="o.company_id.city"/>,&amp;nbsp;
+                                <span t-field="o.company_id.state_id"/>,&amp;nbsp;
+                                <span t-field="o.company_id.zip"/>,&amp;nbsp;
+                                <span t-field="o.company_id.country_id"/>
+                                <!--                                <span>4610 Modern Lane<br/>78041, Laredo, Texas-->
+                                <!--                                </span>-->
+                            </t>
+                            <t t-else="">
+                                <span t-field="o.company_id.street_foreign"/>
+                            </t>
+                        </t>
+                        <t t-else="">
+                            <t t-if="o.partner_id.country_id.code == 'MX'">
+                                <span t-field="o.company_id.street_name"/>&amp;nbsp;
+                                <span t-field="o.company_id.street_number"/>&amp;nbsp;
+                                <br/>
+                                <span t-field="o.company_id.city"/>,&amp;nbsp;
+                                <span t-field="o.company_id.state_id"/>,&amp;nbsp;
+                                <span t-field="o.company_id.zip"/>,&amp;nbsp;
+                                <span t-field="o.company_id.country_id"/>
+                                <!--                                <span>Prol. Blvd. Del Valle 586-->
+                                <!--                                    <br/>-->
+                                <!--                                    Del Valle, 25904, Ramos Arizpe-->
+                                <!--                                </span>-->
+                            </t>
+                            <t t-else="">
+                                <span t-field="o.company_id.street_foreign"/>
+                            </t>
+                        </t>
+
+                    </p>
+                </div>
+                <div class="col-4">
+                    <img src="/informe_po_spanish/static/src/img/Correo.jpg" style="float:left" width="35" height="35"
+                         alt="correo icono"/>
+
+                    <p style="padding-left:38px;word-wrap:break-word;">
+                        <t t-if="o.partner_id.lang == 'en_US'">
+                            <span>purchasing@interm.us</span>
+                            <br/>
+                            <span>www.interm.us</span>
+                        </t>
+                        <t t-else="">
+                            <span>info@interm.com.mx</span>
+                            <br/>
+                            <span>www.interm.com.mx</span>
+                        </t>
+                    </p>
+                </div>
+
+            </div>
+        </xpath>
+    </template>
+</odoo>

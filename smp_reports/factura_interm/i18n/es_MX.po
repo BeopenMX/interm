@@ -1,0 +1,229 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* factura_interm
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e-20200622\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-16 20:52+0000\n"
+"PO-Revision-Date: 2020-11-16 14:56-0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 2.4.1\n"
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.custom_external_layout_invoice_interm
+msgid ""
+"<br/>\n"
+"                        <strong style=\"color:white; font-size:16px\">Fecha </strong>"
+msgstr ""
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "<span>Digital stamp SAT</span>"
+msgstr "<span>Sello digital SAT</span>"
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "<span>Digital stamp of the emitter</span>"
+msgstr "<span>Sello digital del emisor</span>"
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "<span>Emitter certificate:</span>"
+msgstr "<span>Certificado de Emisor:</span>"
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "<span>Extra Info</span>"
+msgstr "<span>Información extra</span>"
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "<span>Issued from</span>"
+msgstr "<span>Emitido desde</span>"
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "<span>Original chain complement of digital certification SAT</span>"
+msgstr "<span>Complemento de cadena original de certificación digital SAT</span>"
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "<span>| Certification Date:</span>"
+msgstr "<span> | Fecha de Certificacion:</span>"
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "<span>| Emission Date:</span>"
+msgstr "<span> | Fecha de Emisión:</span>"
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "<span>| Expedition place:</span>"
+msgstr "<span> | Lugar de Expedición:</span>"
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "<span>| Fiscal Folio:</span>"
+msgstr "<span> | Folio Fiscal:</span>"
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "<span>| Fiscal Regime:</span>"
+msgstr "<span> | Régimen Fiscal:</span>"
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "<span>| SAT Certificate:</span>"
+msgstr "<span> | Certificado SAT</span>"
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "<strong class=\"mr16\">Subtotal</strong>"
+msgstr ""
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "<strong style=\"color:#213360; font-size:16px\">Cliente:</strong>"
+msgstr ""
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "<strong style=\"color:#213360; font-size:16px\">Proveedor:</strong>"
+msgstr ""
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid ""
+"<strong style=\"color:#213360;\">FORMA DE PAGO:</strong>\n"
+"                    <br/>"
+msgstr ""
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid ""
+"<strong style=\"color:#213360;\">METODO DE PAGO</strong>\n"
+"                    <br/>"
+msgstr ""
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid ""
+"<strong style=\"color:#213360;\">MONEDA:</strong>\n"
+"                    <br/>"
+msgstr ""
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid ""
+"<strong style=\"color:#213360;\">USO DE CFDI:</strong>\n"
+"                    <br/>"
+msgstr ""
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.custom_external_layout_invoice_interm
+msgid "<strong style=\"color:white; font-size:16px\">Orden No. </strong>"
+msgstr ""
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "<strong style=\"color:white;padding-left:5px;\">Descripcion </strong>"
+msgstr ""
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid ""
+"<strong> Notas: </strong>\n"
+"                    <br/>"
+msgstr ""
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "<strong>C.P.:</strong>"
+msgstr ""
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "<strong>C.P:</strong>"
+msgstr ""
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "<strong>Cantidad</strong>"
+msgstr ""
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.informe_factura_document_with_payments
+msgid "<strong>Monto a pagar</strong>"
+msgstr ""
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "<strong>Nº O.C.:</strong>"
+msgstr ""
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "<strong>P.U </strong>"
+msgstr ""
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "<strong>RFC:</strong>"
+msgstr ""
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "<strong>Subtotal</strong>"
+msgstr ""
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "<strong>TEL:</strong>"
+msgstr ""
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "<strong>TOTAL</strong>"
+msgstr ""
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "<strong>This document is a printed representation of a CFDI</strong>"
+msgstr "<strong>Este documento es una representación impresa de un CFDI</strong>"
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "<strong>Total</strong>"
+msgstr ""
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "Barcode"
+msgstr ""
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "Clave SAT:"
+msgstr ""
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.custom_external_layout_invoice_interm
+msgid "Logo"
+msgstr ""
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.informe_factura_document_with_payments
+msgid "Pagado el"
+msgstr ""
+
+#. module: factura_interm
+#: model_terms:ir.ui.view,arch_db:factura_interm.account_invoice_interm_document
+msgid "en"
+msgstr ""
